@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Instalamos Python, pip, y utilidades necesarias
 RUN apt-get update --fix-missing && \
-    apt-get install -y procps python3 python3-pip wget tar git && \
+    apt-get install -y procps python3 python3-pip libpq-dev wget tar git && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Instalamos PySpark, Jupyter, Delta Sharing
