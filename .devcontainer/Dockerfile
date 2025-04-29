@@ -10,7 +10,7 @@ RUN apt-get update --fix-missing && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Instalamos PySpark, Jupyter, Delta Sharing
-RUN pip3 install pyspark jupyter delta-sharing
+RUN pip3 install pyspark jupyter delta-sharing psycopg2
 
 # Descargamos e instalamos Apache Spark 3.5.5 con Hadoop 3
 RUN wget https://downloads.apache.org/spark/spark-3.5.5/spark-3.5.5-bin-hadoop3.tgz && \
@@ -24,9 +24,6 @@ ENV PATH=$SPARK_HOME/bin:$PATH
 
 # Exponemos el puerto para Jupyter Notebook
 EXPOSE 8888
-
-# Exponemos el puerto para Postgres
-EXPOSE 5432
 
 # Comando por defecto: inicia Jupyter Lab
 CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--allow-root"]
