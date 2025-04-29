@@ -25,5 +25,8 @@ ENV PATH=$SPARK_HOME/bin:$PATH
 # Exponemos el puerto para Jupyter Notebook
 EXPOSE 8888
 
+# Exponemos el puerto para Postgres
+EXPOSE 5432
+
 # Comando por defecto: inicia Jupyter Lab
 CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--allow-root"]
